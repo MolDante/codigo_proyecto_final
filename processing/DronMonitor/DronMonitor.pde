@@ -157,7 +157,7 @@ void procesarLinea(String linea) {
     float thr, yw, pit, rol;
     try {
       thr = float(p[1]);
-      yw = float(p[2]);
+      yw = -float(p[2]);
       pit = float(p[3]);
       rol = float(p[4]);
       btnIzqPres = (int(p[5]) == 1);
@@ -400,7 +400,7 @@ void dibujarInterfaz() {
   if (estado == ST_PELIGRO) dibujarAlertaPeligro();
   else if (estado == ST_BUSCANDO_PUERTO) dibujarMensajeCentral("BUSCANDO EL ESP32", mensajeBusqueda());
   else if (estado == ST_APAGANDO) dibujarMensajeCentral("APAGANDO EL CONTROL...", "Esperando la confirmacion del ESP32");
-  else if (estado == ST_APAGADO) dibujarMensajeCentral("CONTROL APAGADO", "Para encenderlo: boton del stick izquierdo o boton EN");
+  else if (estado == ST_APAGADO) dibujarMensajeCentral("CONTROL APAGADO", "Para encenderlo: presione el boton de reset");
 }
 
 /** Texto de ayuda mientras se busca el puerto. */
