@@ -19,13 +19,14 @@ final int TIMEOUT_PUERTO_MS = 4000;     // tiempo para probar cada puerto
 final int TIMEOUT_DATOS_MS = 4000;      // sin datos durante este tiempo = conexion perdida
 final int TIMEOUT_APAGADO_MS = 3000;    // espera la confirmacion de apagado
 
-// Detector de movimientos bruscos (ajustar a gusto)
-final float UMBRAL_VELOCIDAD = 700;      // unidades/s: por encima = movimiento brusco
-final float UMBRAL_VELOCIDAD_BAJA = 120; // unidades/s: por debajo = ya casi quieto
-final float UMBRAL_DISPERSION = 6;       // desvio estandar maximo para considerarlo estable
-final int VENTANA_MS = 1000;             // ventana de muestras en memoria
-final int BASE_DERIVADA_MS = 100;        // intervalo para calcular la velocidad de cambio
-final int TIEMPO_ESTABLE_MS = 300;       // tiempo estable requerido para quitar el cartel
+
+// Detector de movimientos bruscos (sensibilidad media)
+final float UMBRAL_VELOCIDAD = 900;      // salta con un tirón rápido (centro a borde en ~0,11 s)
+final float UMBRAL_VELOCIDAD_BAJA = 160; // vuelve a NORMAL apenas frenás el stick
+final float UMBRAL_DISPERSION = 10;      // tolera pequeñas oscilaciones al centrar
+final int VENTANA_MS = 1000;
+final int BASE_DERIVADA_MS = 120;        // ventana corta para captar golpes secos
+final int TIEMPO_ESTABLE_MS = 300;
 
 // Escena 3D
 final float SUELO_Y = 140;
